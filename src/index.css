@@ -1,0 +1,166 @@
+@import "tailwindcss";
+
+/* Low-Spec Mobile Touch Optimizations */
+html,
+body,
+button,
+a,
+input,
+select,
+textarea,
+[role="button"],
+[role="tab"],
+article {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+/* Accessible Focus Indicators for Keyboard & Switch Users (WCAG 2.4.7 / 2.4.11) */
+*:focus-visible {
+  outline: 3px solid #0F766E !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.25) !important;
+}
+
+.dark *:focus-visible {
+  outline: 3px solid #2DD4BF !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 4px rgba(45, 212, 191, 0.3) !important;
+}
+
+.sunlight-mode *:focus-visible {
+  outline: 4px solid #000000 !important;
+  outline-offset: 3px !important;
+  background-color: #FEF08A !important;
+  color: #000000 !important;
+}
+
+/* Force hardware acceleration and zero tap latency on touchables */
+.touch-manipulation {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Instant visual response on active tap before any heavy task */
+button:active:not(:disabled),
+[role="button"]:active:not([aria-disabled="true"]),
+.btn-press:active {
+  transform: scale(0.965) translateZ(0);
+  transition-duration: 40ms !important;
+  filter: brightness(0.92);
+}
+
+/* Prevents scrolling jitter on low-spec GPUs */
+.will-change-transform {
+  will-change: transform;
+}
+
+/* Disabling state during debounce locks */
+[aria-busy="true"] {
+  pointer-events: none !important;
+  cursor: wait !important;
+  opacity: 0.75;
+}
+
+/* Screen reader announcement utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Sunlight Mode: WCAG AAA High Contrast (>= 7:1) for bright African sunlight */
+.sunlight-mode {
+  --bg-primary: #ffffff;
+  --text-primary: #000000;
+  --border-primary: #000000;
+  filter: contrast(1.15);
+}
+
+.sunlight-mode body,
+.sunlight-mode #mobile-device-frame,
+.sunlight-mode main,
+.sunlight-mode div {
+  color: #000000 !important;
+}
+
+.sunlight-mode input,
+.sunlight-mode select {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border-color: #000000 !important;
+  border-width: 2px !important;
+}
+
+.sunlight-mode .bg-white {
+  background-color: #ffffff !important;
+  border-color: #000000 !important;
+  border-width: 2px !important;
+}
+
+.sunlight-mode .text-gray-500,
+.sunlight-mode .text-gray-600,
+.sunlight-mode .text-gray-700,
+.sunlight-mode .text-gray-800 {
+  color: #000000 !important;
+  font-weight: 600 !important;
+}
+
+.sunlight-mode .bg-teal-50,
+.sunlight-mode .bg-teal-100 {
+  background-color: #E6FFFA !important;
+  border-color: #000000 !important;
+}
+
+/* Dark mode styling overrides */
+.dark #mobile-device-frame {
+  background-color: #0F172A !important;
+  color: #F8FAFC !important;
+}
+
+.dark main {
+  background-color: #0F172A !important;
+}
+
+.dark .bg-white {
+  background-color: #1E293B !important;
+  border-color: #334155 !important;
+  color: #F8FAFC !important;
+}
+
+.dark .text-gray-900 {
+  color: #F8FAFC !important;
+}
+
+.dark .text-gray-800 {
+  color: #E2E8F0 !important;
+}
+
+.dark .text-gray-700 {
+  color: #CBD5E1 !important;
+}
+
+.dark .text-gray-600,
+.dark .text-gray-500 {
+  color: #94A3B8 !important;
+}
+
+.dark .border-gray-200,
+.dark .border-gray-300 {
+  border-color: #334155 !important;
+}
+
+.dark input,
+.dark select {
+  background-color: #1E293B !important;
+  color: #F8FAFC !important;
+  border-color: #475569 !important;
+}
+

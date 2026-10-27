@@ -1,0 +1,6 @@
+{
+  "name": "STEMMATE Namibia - Mobile Prototype",
+  "description": "Offline-first mobile STEM activity planner and kit custody prototype for educators in Namibia.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
